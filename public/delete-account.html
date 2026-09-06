@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Cómo eliminar tu cuenta y tus datos de TEFINANCE." />
+		<meta name="theme-color" content="#217fde" />
+		<title>Eliminar cuenta | TEFINANCE</title>
+		<style>
+			:root {
+				--blue: #217fde;
+				--blue-dark: #1558a6;
+				--ink: #17201c;
+				--muted: #65706b;
+				--line: #dfe7e3;
+				--soft: #f3f8f5;
+				--paper: #ffffff;
+				--yellow: #f4c84a;
+				--display: "Ranade", "Trebuchet MS", sans-serif;
+				--body: "General Sans", "Avenir Next", sans-serif;
+			}
+
+			* { box-sizing: border-box; }
+			html { scroll-behavior: smooth; }
+			body {
+				margin: 0;
+				min-width: 320px;
+				color: var(--ink);
+				background: #f8fbf9;
+				font: 16px/1.65 var(--body);
+				-webkit-font-smoothing: antialiased;
+			}
+			a { color: var(--blue-dark); }
+			a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+			.site-header {
+				background: var(--blue);
+				color: #fff;
+				border-bottom: 4px solid var(--yellow);
+			}
+			.header-inner {
+				width: min(1120px, calc(100% - 40px));
+				min-height: 74px;
+				margin: 0 auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 24px;
+			}
+			.brand {
+				color: #fff;
+				text-decoration: none;
+				font: 700 1.18rem/1 var(--display);
+				letter-spacing: .08em;
+			}
+			.brand span { color: var(--yellow); }
+			.header-link {
+				color: #fff;
+				text-decoration: none;
+				font-size: .9rem;
+				font-weight: 600;
+			}
+			.header-link:hover { text-decoration: underline; }
+
+			.layout {
+				width: min(1120px, calc(100% - 40px));
+				margin: 0 auto;
+				padding: 56px 0 80px;
+				display: grid;
+				grid-template-columns: 220px minmax(0, 720px);
+				gap: 80px;
+				align-items: start;
+			}
+			.toc {
+				position: sticky;
+				top: 28px;
+				padding-left: 18px;
+				border-left: 2px solid var(--line);
+			}
+			.toc-title {
+				margin: 0 0 14px;
+				color: var(--muted);
+				font-size: .72rem;
+				font-weight: 700;
+				letter-spacing: .14em;
+				text-transform: uppercase;
+			}
+			.toc a {
+				display: block;
+				padding: 5px 0;
+				color: var(--muted);
+				font-size: .88rem;
+				line-height: 1.35;
+				text-decoration: none;
+			}
+			.toc a:hover { color: var(--blue-dark); }
+
+			main { min-width: 0; }
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin: 0 0 18px;
+				color: var(--blue-dark);
+				font-size: .75rem;
+				font-weight: 800;
+				letter-spacing: .15em;
+				text-transform: uppercase;
+			}
+			.eyebrow::before {
+				content: "";
+				width: 26px;
+				height: 3px;
+				background: var(--yellow);
+			}
+			h1, h2 { font-family: var(--display); }
+			h1 {
+				max-width: 680px;
+				margin: 0;
+				color: var(--ink);
+				font-size: clamp(2.35rem, 5vw, 4.4rem);
+				line-height: .98;
+				letter-spacing: -.055em;
+			}
+			.intro {
+				max-width: 620px;
+				margin: 24px 0 48px;
+				color: var(--muted);
+				font-size: 1.1rem;
+			}
+			section {
+				padding-top: 34px;
+				margin-top: 34px;
+				border-top: 1px solid var(--line);
+				scroll-margin-top: 24px;
+			}
+			h2 {
+				margin: 0 0 12px;
+				font-size: 1.7rem;
+				line-height: 1.15;
+				letter-spacing: -.03em;
+			}
+			p { margin: 0 0 16px; }
+			.steps {
+				display: grid;
+				gap: 10px;
+				margin: 24px 0 22px;
+				padding: 0;
+				list-style: none;
+				counter-reset: steps;
+			}
+			.steps li {
+				display: grid;
+				grid-template-columns: 34px 1fr;
+				gap: 14px;
+				align-items: center;
+				min-height: 52px;
+				padding: 10px 16px 10px 10px;
+				border: 1px solid var(--line);
+				background: var(--paper);
+				counter-increment: steps;
+			}
+			.steps li::before {
+				content: counter(steps);
+				display: grid;
+				place-items: center;
+				width: 34px;
+				height: 34px;
+				border-radius: 50%;
+				color: #fff;
+				background: var(--blue);
+				font-weight: 800;
+			}
+			.notice {
+				margin: 24px 0;
+				padding: 18px 20px;
+				border-left: 4px solid var(--yellow);
+				background: #fff8df;
+			}
+			.notice strong { color: var(--ink); }
+			.data-list {
+				margin: 22px 0 0;
+				padding-left: 22px;
+			}
+			.data-list li { padding: 4px 0 4px 6px; }
+			.retention {
+				width: 100%;
+				margin: 22px 0;
+				border-collapse: collapse;
+				background: var(--paper);
+				font-size: .92rem;
+			}
+			.retention th, .retention td {
+				padding: 14px 15px;
+				border: 1px solid var(--line);
+				text-align: left;
+				vertical-align: top;
+			}
+			.retention th {
+				color: var(--ink);
+				background: var(--soft);
+				font-size: .78rem;
+				letter-spacing: .04em;
+				text-transform: uppercase;
+			}
+			.contact {
+				margin-top: 24px;
+				padding: 24px;
+				color: #fff;
+				background: var(--blue);
+			}
+			.contact h2 { color: #fff; }
+			.contact a { color: #fff; font-weight: 700; }
+			footer {
+				border-top: 1px solid var(--line);
+				padding-top: 22px;
+				color: var(--muted);
+				font-size: .88rem;
+			}
+			.footer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+			@media (max-width: 800px) {
+				.layout { grid-template-columns: 1fr; gap: 34px; padding-top: 36px; }
+				.toc { position: static; padding: 14px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+				.toc a { display: inline-block; margin: 0 18px 5px 0; }
+				.intro { margin-bottom: 34px; }
+			}
+			@media (max-width: 520px) {
+				.header-inner, .layout { width: min(100% - 28px, 720px); }
+				.header-inner { min-height: 64px; }
+				.header-link { font-size: .8rem; }
+				.retention { display: block; overflow-x: auto; white-space: nowrap; }
+				.retention th, .retention td { white-space: normal; min-width: 180px; }
+				.retention th:last-child, .retention td:last-child { min-width: 220px; }
+			}
+		</style>
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="header-inner">
+				<a class="brand" href="https://amplexusagitta.com/">TEFINANCE<span>.</span></a>
+				<a class="header-link" href="https://amplexusagitta.com/">Volver al inicio</a>
+			</div>
+		</header>
+
+		<div class="layout">
+			<nav class="toc" aria-label="Contenido de la página">
+				<p class="toc-title">En esta página</p>
+				<a href="#como-eliminar-tu-cuenta">Cómo eliminar tu cuenta</a>
+				<a href="#que-datos-se-eliminan">Qué datos se eliminan</a>
+				<a href="#que-datos-se-conservan">Qué datos se conservan</a>
+				<a href="#contacto">Contacto</a>
+			</nav>
+
+			<main>
+				<p class="eyebrow">Privacidad y control</p>
+				<h1>Eliminación de cuenta</h1>
+				<p class="intro">Esta página explica cómo eliminar tu cuenta de TEFINANCE y los datos asociados, conforme a los requisitos de Google Play Store.</p>
+
+				<section id="como-eliminar-tu-cuenta">
+					<h2>Cómo eliminar tu cuenta</h2>
+					<p>Puedes eliminar tu cuenta de TEFINANCE directamente desde la aplicación, sin necesidad de contactar a soporte:</p>
+					<ol class="steps">
+						<li>Abre la app TEFINANCE e inicia sesión.</li>
+						<li>Ve a la sección <strong>Perfil</strong>.</li>
+						<li>Presiona <strong>Ajustes</strong>.</li>
+						<li>Toca el botón <strong>Eliminar cuenta</strong>.</li>
+						<li>Confirma la acción cuando la app te lo solicite.</li>
+					</ol>
+					<div class="notice"><strong>Importante:</strong> la eliminación es inmediata, automatizada e irreversible. No es necesario enviar un correo ni esperar una respuesta manual del equipo de soporte.</div>
+					<p>Si prefieres solicitarlo por otro medio, también puedes escribir a <a href="mailto:amplexus.sagitta@gmail.com">amplexus.sagitta@gmail.com</a> indicando el correo asociado a tu cuenta.</p>
+				</section>
+
+				<section id="que-datos-se-eliminan">
+					<h2>Qué datos se eliminan</h2>
+					<p>Al eliminar tu cuenta, se borran de forma permanente e inmediata de nuestros sistemas activos:</p>
+					<ul class="data-list">
+						<li>Tu cuenta de autenticación (email y credenciales de acceso).</li>
+						<li>Ingresos y gastos registrados.</li>
+						<li>Presupuestos.</li>
+						<li>Metas de ahorro.</li>
+						<li>Tarjetas de crédito y préstamos registrados.</li>
+						<li>Inversiones y fondos de emergencia.</li>
+						<li>Listas de compras.</li>
+						<li>Análisis financieros generados con inteligencia artificial.</li>
+						<li>Preferencias y personalización del perfil.</li>
+					</ul>
+				</section>
+
+				<section id="que-datos-se-conservan">
+					<h2>Qué datos se conservan y por cuánto tiempo</h2>
+					<p>Algunos datos no pueden eliminarse de forma instantánea por razones técnicas o legales:</p>
+					<table class="retention">
+						<thead>
+							<tr><th>Dato conservado</th><th>Motivo</th><th>Tiempo de conservación</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Copias de seguridad automáticas del servidor</td><td>Continuidad y recuperación técnica del servicio</td><td>Hasta 30 días desde su rotación natural; luego se eliminan automáticamente.</td></tr>
+							<tr><td>Datos de suscripción (estado, tipo de plan e ID de transacción)</td><td>Obligación legal o fiscal</td><td>Mientras lo exija la ley fiscal aplicable; luego se eliminan.</td></tr>
+							<tr><td>Registros de transacciones de compra en App Store o Google Play</td><td>Gestionados directamente por Apple o Google, no por TEFINANCE</td><td>Según las políticas de retención de Apple y Google.</td></tr>
+						</tbody>
+					</table>
+					<div class="notice"><strong>Recuerda:</strong> eliminar tu cuenta en TEFINANCE no cancela automáticamente una suscripción activa en Apple o Google. Debes cancelarla por separado desde los ajustes de App Store (iOS) o Google Play Store (Android); de lo contrario, podrían seguir cobrándose las renovaciones.</div>
+				</section>
+
+				<section id="contacto" class="contact">
+					<h2>Contacto</h2>
+					<p>Si tienes dudas sobre la eliminación de tu cuenta o de tus datos, escríbenos a:</p>
+					<a href="mailto:amplexus.sagitta@gmail.com">amplexus.sagitta@gmail.com</a>
+				</section>
+
+				<footer>
+					<p>Aplicación: TEFINANCE · Desarrollador: Michell Benzant</p>
+					<div class="footer-links">
+						<a href="https://amplexusagitta.com/">Inicio</a>
+						<a href="https://amplexusagitta.com/privacidad/">Política de Privacidad</a>
+						<a href="https://amplexusagitta.com/terminos/">Términos y Condiciones</a>
+					</div>
+				</footer>
+			</main>
+		</div>
+	</body>
+</html>
